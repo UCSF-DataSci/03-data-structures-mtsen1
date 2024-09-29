@@ -16,13 +16,18 @@ from datetime import date
 
 
 quotes = [
-    # Create a list of quotes here
+    "The sun is shining; we should too.",
+    "Bard chimes",
+    "Ok",
+    "Everything sings to me! I've gotta sing it all back.",
+    "Making it up as I go!" 
 ]
 
 def get_quote_of_the_day(quotes):
-    todays_quote = None
+    today = date.today()
+    random.seed(today.toordinal())
 
-    # Your code here
+    todays_quote = random.choice(quotes)
     
     return todays_quote
 
@@ -31,3 +36,4 @@ if __name__ == "__main__":
 
 # Cron job (add this to your crontab):
 # 0 8 * * * /usr/bin/python3 /path/to/quote_generator.py >> /path/to/daily_quote.txt
+

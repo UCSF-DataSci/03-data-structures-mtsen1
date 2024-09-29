@@ -18,13 +18,24 @@ Hints:
 """
 
 import sys
+import string
+
 
 def word_frequency(text):
     frequencies = {} # Dictionary to store word frequencies
 
-    # Your code here
-    
-    return frequencies
+    text = text.lower().translate(str.maketrans('', '', string.punctuation))
+    words = text.split()
+
+    for word in words:
+        if word in frequencies:
+            frequencies[word] += 1
+        else:
+            frequencies[word] = 1
+
+    frequencies_sorted = dict(sorted(frequencies.items())[:20])
+
+    return frequencies_sorted
 
 # Scaffold for opening a file and running word_frequency() on the contents
 if __name__ == "__main__":
